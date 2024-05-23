@@ -80,7 +80,7 @@ const Index = () => {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize={["0.8625rem", "1.00625rem", "1.15rem"]}
+              fontSize="1rem"
               whiteSpace="normal"
               onClick={() => handleCellClick(index)}
               cursor="pointer"
