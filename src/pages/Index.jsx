@@ -76,11 +76,11 @@ const Index = () => {
               textAlign="center"
               bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
               width="100%"
-              height="100px"
+              height="115px"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize={["0.75rem", "0.875rem", "1rem"]}
+              fontSize={["0.8625rem", "1.00625rem", "1.15rem"]}
               whiteSpace="normal"
               onClick={() => handleCellClick(index)}
               cursor="pointer"
