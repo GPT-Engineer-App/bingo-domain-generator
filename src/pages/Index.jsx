@@ -63,12 +63,12 @@ const Index = () => {
               p={4}
               textAlign="center"
               bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
-              width="88px"
-              height="88px"
+              width="110px" // Increased by 25%
+              height="110px" // Increased by 25%
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize={["xs", "sm", "md"]} // Responsive font size
+              fontSize={["0.75rem", "0.875rem", "1rem"]} // Reduced by 25%
               whiteSpace="normal" // Allow text wrapping
               onClick={() => handleCellClick(index)}
               cursor="pointer"
