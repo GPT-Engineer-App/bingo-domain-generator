@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Text, VStack, Button, SimpleGrid, Box } from "@chakra-ui/react";
+import { Container, Text, VStack, Button, SimpleGrid, Box, Input, HStack } from "@chakra-ui/react";
 
 const bingoOptions = [
   "Win a domain auction as the only bidder",
@@ -38,16 +38,28 @@ const generateBingoCard = () => {
 const Index = () => {
   const [bingoCard, setBingoCard] = useState(generateBingoCard());
   const [clickedCells, setClickedCells] = useState(new Array(25).fill(false));
+  const [showGenerateButton, setShowGenerateButton] = useState(true);
+  const [email, setEmail] = useState("");
 
   const handleGenerateCard = () => {
     setBingoCard(generateBingoCard());
     setClickedCells(new Array(25).fill(false));
+    setShowGenerateButton(false);
   };
 
   const handleCellClick = (index) => {
     const newClickedCells = [...clickedCells];
     newClickedCells[index] = !newClickedCells[index];
     setClickedCells(newClickedCells);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSaveCard = () => {
+    // Logic to save the card can be added here
+    console.log("Card saved with email:", email);
   };
 
   return (
@@ -63,8 +75,8 @@ const Index = () => {
               p={4}
               textAlign="center"
               bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
-              width="137.5px"
-              height="137.5px"
+              width="100%"
+              height="100px"
               display="flex"
               alignItems="center"
               justifyContent="center"
@@ -77,7 +89,21 @@ const Index = () => {
             </Box>
           ))}
         </SimpleGrid>
-        <Button onClick={handleGenerateCard} colorScheme="blue" mt={4}>Generate Card</Button>
+        {showGenerateButton ? (
+          <Button onClick={handleGenerateCard} colorScheme="blue" mt={4}>Generate Card</Button>
+        ) : (
+          <VStack spacing={4} mt={4}>
+            <HStack>
+              <Input
+                placeholder="Enter your email"
+                value={email}
+                onChange={handleEmailChange}
+                size="md"
+              />
+              <Button onClick={handleSaveCard} colorScheme="green">Save my card</Button>
+            </HStack>
+          </VStack>
+        )}
       </VStack>
     </Container>
   );
