@@ -37,16 +37,24 @@ const generateBingoCard = () => {
 
 const Index = () => {
   const [bingoCard, setBingoCard] = useState(generateBingoCard());
+  const [clickedCells, setClickedCells] = useState(new Array(25).fill(false));
 
   const handleGenerateCard = () => {
     setBingoCard(generateBingoCard());
+    setClickedCells(new Array(25).fill(false));
+  };
+
+  const handleCellClick = (index) => {
+    const newClickedCells = [...clickedCells];
+    newClickedCells[index] = !newClickedCells[index];
+    setClickedCells(newClickedCells);
   };
 
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
         <Text fontSize="2xl" fontWeight="bold">Domain Name Bingo</Text>
-        <SimpleGrid columns={5} spacing={2} width="100%" maxW="500px">
+        <SimpleGrid columns={5} spacing={2} width="100%" maxW="550px">
           {bingoCard.map((item, index) => (
             <Box
               key={index}
@@ -54,13 +62,16 @@ const Index = () => {
               borderRadius="lg"
               p={4}
               textAlign="center"
-              bg={item === "Hand register a domain" ? "yellow.200" : "white"}
-              width="80px"
-              height="80px"
+              bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
+              width="88px"
+              height="88px"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize="sm" // Add this line to shrink the font size
+              fontSize={["xs", "sm", "md"]} // Responsive font size
+              whiteSpace="normal" // Allow text wrapping
+              onClick={() => handleCellClick(index)}
+              cursor="pointer"
             >
               {item}
             </Box>
