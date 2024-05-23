@@ -24,7 +24,7 @@ const bingoOptions = [
   "Sell a domain for 5 figures or more",
   "Backorder a domain successfully",
   "Own a domain for 10 years",
-  "Attend namescon (or another industry conference)",
+  "Attend an industry conference",
   "Create a personal domain website"
 ];
 
@@ -63,13 +63,13 @@ const Index = () => {
               p={4}
               textAlign="center"
               bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
-              width="110px" // Increased by 25%
-              height="110px" // Increased by 25%
+              width="137.5px"
+              height="137.5px"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize={["0.75rem", "0.875rem", "1rem"]} // Reduced by 25%
-              whiteSpace="normal" // Allow text wrapping
+              fontSize={["0.75rem", "0.875rem", "1rem"]}
+              whiteSpace="normal"
               onClick={() => handleCellClick(index)}
               cursor="pointer"
             >
