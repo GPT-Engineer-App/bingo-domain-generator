@@ -60,6 +60,7 @@ const Index = () => {
               display="flex"
               alignItems="center"
               justifyContent="center"
+              fontSize="sm" // Add this line to shrink the font size
             >
               {item}
             </Box>
