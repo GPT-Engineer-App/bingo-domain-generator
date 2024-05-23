@@ -65,7 +65,7 @@ const Index = () => {
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
-        <Text fontSize="2xl" fontWeight="bold">Domain Name Bingo</Text>
+        <Text fontSize="2xl" fontWeight="bold" marginTop="50px">Domain Name Bingo</Text>
         <SimpleGrid columns={5} spacing={2} width="100%" maxW="687.5px" minChildWidth="125px">
           {bingoCard.map((item, index) => (
             <Box
