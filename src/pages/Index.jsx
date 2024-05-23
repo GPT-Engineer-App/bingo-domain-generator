@@ -46,9 +46,21 @@ const Index = () => {
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
         <Text fontSize="2xl" fontWeight="bold">Domain Name Bingo</Text>
-        <SimpleGrid columns={5} spacing={2}>
+        <SimpleGrid columns={5} spacing={2} width="100%" maxW="500px">
           {bingoCard.map((item, index) => (
-            <Box key={index} borderWidth="1px" borderRadius="lg" p={4} textAlign="center" bg={item === "Hand register a domain" ? "yellow.200" : "white"}>
+            <Box
+              key={index}
+              borderWidth="1px"
+              borderRadius="lg"
+              p={4}
+              textAlign="center"
+              bg={item === "Hand register a domain" ? "yellow.200" : "white"}
+              width="80px"
+              height="80px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
               {item}
             </Box>
           ))}
