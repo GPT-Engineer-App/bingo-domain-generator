@@ -66,7 +66,7 @@ const Index = () => {
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
         <Text fontSize="2xl" fontWeight="bold">Domain Name Bingo</Text>
-        <SimpleGrid columns={5} spacing={2} width="100%" maxW="550px">
+        <SimpleGrid columns={5} spacing={2} width="100%" maxW="550px" minChildWidth="100px">
           {bingoCard.map((item, index) => (
             <Box
               key={index}
@@ -75,13 +75,15 @@ const Index = () => {
               p={4}
               textAlign="center"
               bg={item === "Hand register a domain" || clickedCells[index] ? "green.200" : "white"}
-              width="100%"
-              height="115px"
+              width="100px"
+              height="100px"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              fontSize="1rem"
+              fontSize="0.9rem"
               whiteSpace="normal"
+              overflow="hidden"
+              textOverflow="ellipsis"
               onClick={() => handleCellClick(index)}
               cursor="pointer"
             >
